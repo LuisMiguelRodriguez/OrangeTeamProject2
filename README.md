@@ -5,11 +5,11 @@
  - [ResourceFoods](https://project2teamorange.herokuapp.com/)
 
 
-##Author(s)
-    - Luis Rodriguez(/ Front-end / Back-end / Login )
-    - Jennifer Ma (Project Management / Front-end / Design)
-    - Om Kapoor (Back-end / Testing / Routing)
-    - Andre Valdovinos (Back-end)
+## Author(s)
+    - [Luis Rodriguez](/ Front-end / Back-end / Login )
+    - [Jennifer Ma](https://github.com/Jenmadev) (Project Management / Front-end / Design)
+    - [Om Kapoor](https://github.com/okapoor) (Back-end / Testing / Routing)
+    - [Andre Valdovinos](https://github.com/ThatOneAndres) (Back-end / Routing )
 
 
 ## Description
@@ -40,7 +40,7 @@
   - Supertest
 
   ### Deployment
-  - Heroku 
+  - Heroku
 
 
 
