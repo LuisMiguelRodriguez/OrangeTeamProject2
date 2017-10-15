@@ -6,10 +6,10 @@
 
 
 ## Author(s)
-    - [Luis Rodriguez](/ Front-end / Back-end / Login )
-    - [Jennifer Ma](https://github.com/Jenmadev) (Project Management / Front-end / Design)
-    - [Om Kapoor](https://github.com/okapoor) (Back-end / Testing / Routing)
-    - [Andre Valdovinos](https://github.com/ThatOneAndres) (Back-end / Routing )
+  - [Luis Rodriguez](https://github.com/LuisMiguelRodriguez)(/ Front-end / Back-end / Login )
+  - [Jennifer Ma](https://github.com/Jenmadev) (Project Management / Front-end / Design)
+  - [Om Kapoor](https://github.com/okapoor) (Back-end / Testing / Routing)
+  - [Andre Valdovinos](https://github.com/ThatOneAndres) (Back-end / Routing )
 
 
 ## Description
