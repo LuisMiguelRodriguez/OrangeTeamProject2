@@ -21,10 +21,16 @@ module.exports = function(app) {
     console.log(req.body.dietLabels)
     console.log(req.body.url)
     console.log(req.body.image)
+    var userID;
+    if (typeof req.session.passport.user === "object"){
+      userID = req.session.passport.user.user_id;
+    }else{
+      userID = req.session.passport.user;
+    }
 
     // Add sequelize code to find all posts, and return them to the user with res.json
     db.favorites.create({
-      userid: req.session.passport.user.toString(),
+      userid: userID.toString(),
       label: req.body.label,
       dietLabels: req.body.dietLabels,
       url: req.body.url,
@@ -40,10 +46,15 @@ module.exports = function(app) {
   app.get("/favorites/", function(req, res) {
     // Add sequelize code for creating a post using req.body,
     // then return the result using res.json
-
-    console.log(req.session.passport.user)
+    var userID;
+    if (typeof req.session.passport.user === "object"){
+      userID = req.session.passport.user.user_id;
+    }else{
+      userID = req.session.passport.user;
+    }
+    console.log("REQ.SESSION.PASSPORT.USER",req.session.passport.user)
     db.favorites.findAll({where: {
-      userid: req.session.passport.user,
+      userid: userID,
     }}).then((result) => {
       if (result.length === 0) {
         res.send("NO Favorites")

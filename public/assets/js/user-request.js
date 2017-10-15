@@ -167,9 +167,17 @@ $(document).ready(function(){
         var searchedRecipe = $("#searchRecipe").val();
 
         $.get("api/user").done(function(result){
+          console.log("RESULT: ",result)
+          
           if (typeof result === "object"){
+            var userID;
+            if (typeof result.user === "object"){
+              userID = result.user.user_id;
+            }else{
+              userID = result.user;
+            }
             var obj = {
-              userId: result.user,
+              userId: userID,
               foods: searchedRecipe
             }
             $.post("/api/history",obj,function(){});
@@ -290,7 +298,13 @@ $(document).ready(function(){
     // var data = ["chicken, bread","pork, eggs","butter,ham,egg"]
     $.get("api/user").done(function(result){
       if (typeof result === "object"){
-          $.get("/api/history/" + result.user,function(data){
+        var userID;
+        if (typeof result.user === "object"){
+          userID = result.user.user_id;
+        }else{
+          userID = result.user;
+        }
+          $.get("/api/history/" + userID,function(data){
             console.log(data);
             if (typeof data === "object"){
               var searchHistory = $("<a/>");
@@ -311,6 +325,16 @@ $(document).ready(function(){
 
               $(".search-form").after(searchList);
               $(".search-form").after(searchHistory);
+              $(".search-history").click(function(){
+                event.preventDefault();
+                var ingredients = $(this).text();
+                console.log(ingredients);
+                var food = {
+                  foods: ingredients.split(" ")
+                }
+                $.post("api/recipesearch/",food)
+                .done(displayRecipes);
+              });
           }
         });
       }
@@ -318,17 +342,5 @@ $(document).ready(function(){
 
     $(document).on("click", ".glyphicon", myFavorite)
 
-  $(".search-history").click(function(){
-    event.preventDefault();
-    var ingredients = $(this).text();
-    console.log(ingredients);
-    var food = {
-      foods: ingredients.split(" ")
-    }
-    $.post("api/recipesearch/",food)
-    .done(displayRecipes);
-
-
-  });
 
 });
